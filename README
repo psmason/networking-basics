@@ -1,0 +1,15 @@
+The current layout is the following:
+
+laptop <-> wireless router <-> modem <-> desktop pc <-> ubuntu vm
+
+On the private network, there are multiple IPs to consider:
+1) IP for ubuntu vm
+2) IP for desktop pc for virtualbox host-only network
+3) IP for desktop pc 
+
+Consequently, we need to:
+1) (desktop pc <-> ubuntu vm) Allow port forwarding between host and guest on Virtual Box. This will involve IPs (1) and (2) above, using some agreed upon port. 
+   Configuration on virtual should trigger a window's firewall notification.
+2) Configure port fowarding on the windows desktop, between IPs (2) and (3). 
+   I did this through the netsh cmd:
+   netsh interface portproxy add v4tov4 listenport=<aggreed upon port> listenaddress=<IP (3) above> connectport=<agreed upon port> connectaddress=<IP (2) above> 
