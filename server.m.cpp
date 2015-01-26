@@ -39,13 +39,9 @@ namespace {
             std::string ipver("");
 
             if (AF_INET == p->ai_family) {
-                // struct sockaddr_in *ipv4 = (struct sockaddr_in *)p->ai_addr;
-                // addr = &(ipv4->sin_addr);
                 ipver = "IPv4";
             }
             else {
-                // struct sockaddr_in6 *ipv6 = (struct sockaddr_in6 *)p->ai_addr;
-                // addr = &(ipv6->sin6_addr);
                 ipver = "IPv6";
             }
             
